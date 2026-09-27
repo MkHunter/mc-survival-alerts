@@ -1,0 +1,154 @@
+===== SHEET: items =====
+food_id	hunger_value	status_effects	status_effect_times	display_name	asset_file	saturation_modifier	saturation_value	consume_time_seconds	can_always_eat	stack_size	effect_chance_pct	eat_when_hp_below	suggested_points_cost	suggested_cooldown_seconds	notes
+apple	4	[]	[]	Apple	apple.png	0.3	2.4	1.6	no	64			100	30
+apple_golden	4	[regeneration_II, absorption_I]	[5000, 120000]	Golden Apple	apple_golden.png	1.2	9.6	1.6	yes	64		14	2500	300	Regeneration II 0:05 + Absorption I 2:00 (Java). Gate: only eat when HP<=14 (suggested, editable)
+apple_golden_enhanced	4	[absorption_IV, regeneration_II, resistance_I, fire_resistance_I]	[120000, 20000, 300000, 300000]	Enchanted Golden Apple	(MISSING: reuse apple_golden.png + purple shimmer)	1.2	9.6	1.6	yes	64		10	10000	900	Java 1.21: Absorption IV 2:00, Regen II 0:20, Resistance I 5:00, Fire Res I 5:00. Fixed from old sheet (was 120000 for all)
+beetroot	1	[]	[]	Beetroot	beetroot.png	0.6	1.2	1.6	no	64			50	30
+beetroot_soup	6	[]	[]	Beetroot Soup	beetroot_soup.png	0.6	7.2	1.6	no	1			250	30	id fixed: was "beetroot soup"
+bread	5	[]	[]	Bread	bread.png	0.6	6.0	1.6	no	64			150	30
+cake_slice	2	[]	[]	Cake Slice	(MISSING: cake.png needed)	0.2	0.4	1.6	no	1			50	15	Cake is 7 slices; slice value only
+cake	14	[]	[]	Cake (whole)	(MISSING: cake.png needed)	0.2	2.8	1.6	no	1			350	60	Whole cake = 7 slices x 2 hunger; recommend selling as 1 redemption = 1 slice
+bucket_milk	0	[clear_all_status]	[0]	Milk Bucket	bucket_milk.png	0	0	1.6	yes	16			300	60	Clears ALL status effects instantly. Drinkable anytime
+carrot	4	[]	[]	Carrot	carrot.png	0.6	3.6	1.6	no	64			100	30	FIXED: was 3, vanilla is 4 (Java 1.9+)
+chicken_cooked	6	[]	[]	Cooked Chicken	chicken_cooked.png	0.6	7.2	1.6	no	64			250	30
+chicken_raw	2	[hunger_I]	[30000]	Raw Chicken	chicken_raw.png	0.3	1.2	1.6	no	64	30		100	30	30% chance Hunger I 0:30
+chorus_fruit	4	[chorus_teleport]	[0]	Chorus Fruit	chorus_fruit.png	0.3	2.4	1.6	yes	64			150	30	No status effect: random teleport (~8 block radius). Widget: play teleport sound + purple particles, cosmetic
+cookie	2	[]	[]	Cookie	cookie.png	0.2	0.4	1.6	no	64			50	15
+dried_kelp	1	[]	[]	Dried Kelp	dried_kelp.png	0.3	0.6	0.8	no	64			50	15	Fast eat: 0.8s (half of 1.6s)
+fish_cooked	5	[]	[]	Cooked Cod	fish_cooked.png	0.6	6.0	1.6	no	64			150	30	This is COOKED COD (5 hunger). Use for "fish_cooked" asset
+fish_raw	2	[]	[]	Raw Cod	fish_raw.png	0.1	0.4	1.6	no	64			50	30	Raw cod
+fish_salmon_cooked	6	[]	[]	Cooked Salmon	fish_salmon_cooked.png	0.8	9.6	1.6	no	64			250	30
+fish_salmon_raw	2	[]	[]	Raw Salmon	fish_salmon_raw.png	0.1	0.4	1.6	no	64			50	30
+fish_clownfish_raw	1	[]	[]	Tropical Fish	fish_clownfish_raw.png	0.1	0.2	1.6	no	64			50	30	Tropical fish (clownfish)
+fish_pufferfish_raw	1	[nausea_I, hunger_III, poison_II]	[15000, 15000, 60000]	Pufferfish	fish_pufferfish_raw.png	0.1	0.2	1.6	no	64			250	60	FIXED: removed unclear "dmg_stop" entry. Nausea I 0:15, Hunger III 0:15, Poison II 1:00. Hunger III drains 4.5 total exhaustion over 0:15
+honey_bottle	6	[clear_poison]	[0]	Honey Bottle	honey_bottle.png	0.1	1.2	2.0	yes	16			250	30	Removes Poison only. Slow eat: 2.0s. Drinkable anytime. Suggested gate: only useful when Poison active
+melon	2	[]	[]	Melon Slice	melon.png	0.3	1.2	1.6	no	64			50	15
+mutton_cooked	6	[]	[]	Cooked Mutton	mutton_cooked.png	0.8	9.6	1.6	no	64			250	30
+mutton_raw	2	[]	[]	Raw Mutton	mutton_raw.png	0.3	1.2	1.6	no	64			100	30	FIXED: vanilla raw mutton has NO effect (was 30% hunger - that is raw chicken only)
+mushroom_stew	6	[]	[]	Mushroom Stew	mushroom_stew.png	0.6	7.2	1.6	no	1			250	30
+porkchop_cooked	8	[]	[]	Cooked Porkchop	porkchop_cooked.png	0.8	12.8	1.6	no	64			500	60
+porkchop_raw	3	[]	[]	Raw Porkchop	porkchop_raw.png	0.3	1.8	1.6	no	64			100	30
+potato	1	[]	[]	Potato	potato.png	0.3	0.6	1.6	no	64			50	15
+potato_baked	6	[]	[]	Baked Potato	potato_baked.png	0.6	7.2	1.6	no	64			150	30	FIXED: was 5, vanilla is 6
+potato_poisonous	2	[poison_I]	[5000]	Poisonous Potato	potato_poisonous.png	0.3	1.2	1.6	no	64	60		100	30	60% chance Poison I 0:05 (duration was blank, now filled)
+pumpkin_pie	8	[]	[]	Pumpkin Pie	pumpkin_pie.png	0.3	4.8	1.6	no	64			500	60
+rabbit_cooked	5	[]	[]	Cooked Rabbit	rabbit_cooked.png	0.6	6.0	1.6	no	64			150	30
+rabbit_raw	3	[]	[]	Raw Rabbit	rabbit_raw.png	0.3	1.8	1.6	no	64			100	30
+rabbit_stew	10	[]	[]	Rabbit Stew	rabbit_stew.png	0.6	12.0	1.6	no	1			500	60	Best food: 10 hunger 12 saturation
+rotten_flesh	4	[hunger_I]	[30000]	Rotten Flesh	rotten_flesh.png	0.1	0.8	1.6	no	64	80		100	30	80% chance Hunger I 0:30
+spider_eye	2	[poison_I]	[5000]	Spider Eye	spider_eye.png	0.8	3.2	1.6	no	64			100	30	FIXED: was 4000ms, vanilla 0:05 = 5000ms. Poison I stops at 1 HP
+steak	8	[]	[]	Steak	beef_cooked.png	0.8	12.8	1.6	no	64			500	60	Steak = cooked beef; asset is beef_cooked.png
+sweet_berries	2	[]	[]	Sweet Berries	sweet_berries.png	0.1	0.4	1.6	no	64			50	15	FIXED: was 1, Java value is 2 hunger
+suspicious_stew	6	[RANDOM_ONE_OF]	[poison_I:11000, blindness_I:7000, weakness_I:7000, wither_I:7000, night_vision_I:5000, jump_boost_I:5000, regeneration_I:7000, fire_resistance_I:3000, saturation_I:350]	Suspicious Stew	suspicious_stew.png	0.6	7.2	1.6	yes	1			250	60	Effect depends on flower (vanilla). Pick 1 random from pool on redemption. Pool per Java 1.21 flower table
+hoglin_meat_raw	3	[]	[]	Hoglin Meat (Raw)	hoglin_meat_raw.png	0.3	1.8	1.6	no	64			100	30	Same nutrition as raw porkchop (variant texture)
+hoglin_meat_cooked	8	[]	[]	Hoglin Meat (Cooked)	hoglin_meat_cooked.png	0.8	12.8	1.6	no	64			500	60	Same nutrition as cooked porkchop
+
+===== SHEET: status_effects =====
+status_effect_id	display_name	type	hud_row	icon_asset	sim_behavior	mechanic_summary
+speed	Speed	positive	top	speed_effect.png	icon only	Movement +20% per level. No food source; keep for completeness
+slowness	Slowness	negative	bottom	slowness_effect.png	icon only	Movement -15% per level
+haste	Haste	positive	top	haste_effect.png	icon only	Mining speed +20% per level
+mining_fatigue	Mining Fatigue	negative	bottom	mining_fatigue_effect.png	icon only	Mining speed -30% per level (mult 1-0.3*lvl approx)
+strength	Strength	positive	top	strength_effect.png	icon only	Melee damage +3 HP per level (Java)
+instant_health	Instant Health	positive	top	(MISSING: instant_health_effect.png)	instant heal	Heals 4 HP at level I, x2 per extra level (potion of healing)
+instant_damage	Instant Damage	negative	bottom	(MISSING)	instant dmg	Magic damage 6 HP at level I, x2 per extra level; reduced by Resistance
+poison	Poison	negative	bottom	poison_effect.png	damage over time	Level I: 1 HP every 1.25s (25 ticks); Level II: 1 HP every 0.6s. CANNOT kill: stops at 1 HP. Healer foods can re-trigger. Hearts render green
+wither	Wither	negative	bottom	wither_effect.png	damage over time	Level I: 1 HP every 2s (40 ticks); Level II: 1 HP every 1s. CAN kill. Hearts render black
+hunger	Hunger	negative	bottom	hunger_effect.png	exhaustion pump	Adds 0.005 x level exhaustion per tick = drains 1 saturation (or hunger) point every 40/level seconds. Hunger bar renders yellow-green (hunger_bar_meat_status assets)
+blindness	Blindness	negative	bottom	blindness_effect.png	visual	Dark fog vignette overlay; disables sprint/crit
+nausea	Nausea	negative	bottom	nausea_effect.png	visual	Screen warp/wobble overlay (sinusoidal distortion)
+night_vision	Night Vision	positive	top	night_vision_effect.png	visual	Brighten overlay
+fire_resistance	Fire Resistance	positive	top	fire_resistance_effect.png	icon only	Immune to fire/lava damage
+water_breathing	Water Breathing	positive	top	water_breathing_effect.png	icon only	No drowning
+invisibility	Invisibility	positive	top	invisibility_effect.png	visual	Icon only on HUD
+jump_boost	Jump Boost	positive	top	jump_boost_effect.png	icon only	Jump height 1.83 blocks (I), 2.52 (II)
+regeneration	Regeneration	positive	top	regeneration_effect.png	heal over time	Level I: 1 HP per 2.5s; II: 1 HP per 1.25s; III: per 0.6s
+weakness	Weakness	negative	bottom	weakness_effect.png	icon only	Melee damage -4 per level (Java)
+resistance	Resistance	positive	top	resistance_effect.png	damage reducer	Damage taken -20% per level (does NOT reduce starvation)
+absorption	Absorption	positive	top	(MISSING: absorption_effect.png)	shield hearts	+4 HP per level as yellow hearts above health bar; absorbs damage first; cannot regenerate; lost at expiry
+saturation	Saturation	positive	top	(MISSING: saturation_effect.png)	instant refill	Instantly +1 hunger and +2 saturation per level per tick. Effect is instant - do NOT show HUD icon for 0.35s stew variant
+glowing	Glowing	neutral	bottom	(MISSING)	icon only	Outline visual
+levitation	Levitation	negative	bottom	levitation_effect.png	icon only	Float upward; no food source
+luck	Luck	positive	bottom	(MISSING)	icon only	Loot quality
+unluck	Unluck	negative	bottom	(MISSING)	icon only	Loot quality down
+conduit_power	Conduit Power	positive	top	(MISSING)	icon only	Underwater combo
+dolphins_grace	Dolphins Grace	positive	top	(MISSING)	icon only	Swim speed
+bad_omen	Bad Omen	negative	bottom	bad_omen_effect.png	icon only	Raid trigger on village entry
+hero_of_the_village	Hero of the Village	positive	top	village_hero_effect.png	icon only	Villager discounts. NOTE: asset file name is village_hero_effect.png not hero_of_the_village_effect.png
+health_boost	Health Boost	positive	top	(MISSING)	max hp up	+4 max HP per level
+darkness	Darkness	negative	bottom	(MISSING)	visual	Pulsing darkness overlay
+
+===== SHEET: simulation_config =====
+key	value	notes
+engine.tick_rate_ms	50	20 ticks/sec like Minecraft
+engine.max_hunger	20	10 drumsticks
+engine.max_health	20	10 hearts; absorption adds up to +20 buffer on top
+engine.exhaustion_unit	4.0	Every 4.0 exhaustion drains 1 saturation (or hunger) point
+engine.initial_saturation	5.0	Spawn value
+engine.saturation_cap_rule	saturation <= hunger	Cap after eating
+engine.regen_interval_s	4.0	If hunger >= 18: +1 HP every 4s; costs 6 exhaustion; saturation drains before hunger
+engine.saturation_boost_interval_s	0.5	Java only: hunger = 20 and saturation > 0: +1 HP per 0.5s; costs 1.5 saturation
+engine.starve_interval_s	4.0	Hunger = 0: 1 HP damage every 4s; stops at 1 HP (Normal difficulty)
+engine.sprint_exhaustion_per_meter	0.1
+engine.jump_exhaustion	0.05	Sprint jump: 0.2
+engine.mine_exhaustion_per_block	0.005
+engine.damage_exhaustion	0.1	per damage instance
+sim.activity_profile	normal	idle=0, relaxed=3, normal=6, hardcore=12 exhaustion per minute (configurable slider); hunger pts/min = ex_per_min / 4
+sim.hp_damage_mode	effects_only	Vanilla-faithful: HP only changes via food effects, starvation, absorption timers. Optional: danger_events adds periodic damage
+sim.danger_event_interval_s	0	0 = disabled. If > 0: 1 HP damage every N seconds (simulated mobs)
+queue.size	9	Inventory bar slots
+queue.order	fifo_strict	Consume head-first. Blocked head (gates unmet) shows waiting shake; engine proceeds with next eligible items behind it unless queue.block_strict=true
+queue.block_strict	False	true = head-of-line blocking (pure FIFO). Default false = skip-ahead
+queue.gate_rule	requires_hunger_space	Plain foods need hunger < 20. can_always_eat items ignore. Optional eat_when_hp_below per-item gate
+xp.mode	channel_points	XP = redemption cost / xp.divisor. Alternative: survival timer
+xp.divisor	10	1 XP per 10 channel points spent
+xp.cost_per_level_formula	L<16: 2L+7 | L16-30: 5L-38 | L31+: 9L-158	Vanilla XP curve; level text above bar, bar = progress to next
+death.respawn_s	10	Red vignette + death screen; respawn with 20/20
+death.clear_queue	False	Suggested default keep queue; alternatively refund queue items
+death.xp_penalty	halve_level	Configurable: none / halve / reset
+
+===== SHEET: channel_points =====
+food_id	reward_title_suggested	cost	cooldown_seconds	max_per_user_per_stream	anti_spam_note
+apple	Eat a Apple	100	30	0	Twitch reward-side cooldown is backup only; primary anti-spam = queue-full auto-cancel + refund
+apple_golden	Eat a Golden Apple	2500	300	10	Twitch reward-side cooldown is backup only; primary anti-spam = queue-full auto-cancel + refund
+apple_golden_enhanced	Eat a Enchanted Golden Apple	10000	900	10	Twitch reward-side cooldown is backup only; primary anti-spam = queue-full auto-cancel + refund
+beetroot	Eat a Beetroot	50	30	0	Twitch reward-side cooldown is backup only; primary anti-spam = queue-full auto-cancel + refund
+beetroot_soup	Eat a Beetroot Soup	250	30	0	Twitch reward-side cooldown is backup only; primary anti-spam = queue-full auto-cancel + refund
+bread	Eat a Bread	150	30	0	Twitch reward-side cooldown is backup only; primary anti-spam = queue-full auto-cancel + refund
+cake_slice	Eat a Cake Slice	50	15	0	Twitch reward-side cooldown is backup only; primary anti-spam = queue-full auto-cancel + refund
+cake	Eat a Cake (whole)	350	60	0	Twitch reward-side cooldown is backup only; primary anti-spam = queue-full auto-cancel + refund
+bucket_milk	Eat a Milk Bucket	300	60	0	Twitch reward-side cooldown is backup only; primary anti-spam = queue-full auto-cancel + refund
+carrot	Eat a Carrot	100	30	0	Twitch reward-side cooldown is backup only; primary anti-spam = queue-full auto-cancel + refund
+chicken_cooked	Eat a Cooked Chicken	250	30	0	Twitch reward-side cooldown is backup only; primary anti-spam = queue-full auto-cancel + refund
+chicken_raw	Eat a Raw Chicken	100	30	0	Twitch reward-side cooldown is backup only; primary anti-spam = queue-full auto-cancel + refund
+chorus_fruit	Eat a Chorus Fruit	150	30	0	Twitch reward-side cooldown is backup only; primary anti-spam = queue-full auto-cancel + refund
+cookie	Eat a Cookie	50	15	0	Twitch reward-side cooldown is backup only; primary anti-spam = queue-full auto-cancel + refund
+dried_kelp	Eat a Dried Kelp	50	15	0	Twitch reward-side cooldown is backup only; primary anti-spam = queue-full auto-cancel + refund
+fish_cooked	Eat a Cooked Cod	150	30	0	Twitch reward-side cooldown is backup only; primary anti-spam = queue-full auto-cancel + refund
+fish_raw	Eat a Raw Cod	50	30	0	Twitch reward-side cooldown is backup only; primary anti-spam = queue-full auto-cancel + refund
+fish_salmon_cooked	Eat a Cooked Salmon	250	30	0	Twitch reward-side cooldown is backup only; primary anti-spam = queue-full auto-cancel + refund
+fish_salmon_raw	Eat a Raw Salmon	50	30	0	Twitch reward-side cooldown is backup only; primary anti-spam = queue-full auto-cancel + refund
+fish_clownfish_raw	Eat a Tropical Fish	50	30	0	Twitch reward-side cooldown is backup only; primary anti-spam = queue-full auto-cancel + refund
+fish_pufferfish_raw	Eat a Pufferfish	250	60	0	Twitch reward-side cooldown is backup only; primary anti-spam = queue-full auto-cancel + refund
+honey_bottle	Eat a Honey Bottle	250	30	0	Twitch reward-side cooldown is backup only; primary anti-spam = queue-full auto-cancel + refund
+melon	Eat a Melon Slice	50	15	0	Twitch reward-side cooldown is backup only; primary anti-spam = queue-full auto-cancel + refund
+mutton_cooked	Eat a Cooked Mutton	250	30	0	Twitch reward-side cooldown is backup only; primary anti-spam = queue-full auto-cancel + refund
+mutton_raw	Eat a Raw Mutton	100	30	0	Twitch reward-side cooldown is backup only; primary anti-spam = queue-full auto-cancel + refund
+mushroom_stew	Eat a Mushroom Stew	250	30	0	Twitch reward-side cooldown is backup only; primary anti-spam = queue-full auto-cancel + refund
+porkchop_cooked	Eat a Cooked Porkchop	500	60	0	Twitch reward-side cooldown is backup only; primary anti-spam = queue-full auto-cancel + refund
+porkchop_raw	Eat a Raw Porkchop	100	30	0	Twitch reward-side cooldown is backup only; primary anti-spam = queue-full auto-cancel + refund
+potato	Eat a Potato	50	15	0	Twitch reward-side cooldown is backup only; primary anti-spam = queue-full auto-cancel + refund
+potato_baked	Eat a Baked Potato	150	30	0	Twitch reward-side cooldown is backup only; primary anti-spam = queue-full auto-cancel + refund
+potato_poisonous	Eat a Poisonous Potato	100	30	0	Twitch reward-side cooldown is backup only; primary anti-spam = queue-full auto-cancel + refund
+pumpkin_pie	Eat a Pumpkin Pie	500	60	0	Twitch reward-side cooldown is backup only; primary anti-spam = queue-full auto-cancel + refund
+rabbit_cooked	Eat a Cooked Rabbit	150	30	0	Twitch reward-side cooldown is backup only; primary anti-spam = queue-full auto-cancel + refund
+rabbit_raw	Eat a Raw Rabbit	100	30	0	Twitch reward-side cooldown is backup only; primary anti-spam = queue-full auto-cancel + refund
+rabbit_stew	Eat a Rabbit Stew	500	60	0	Twitch reward-side cooldown is backup only; primary anti-spam = queue-full auto-cancel + refund
+rotten_flesh	Eat a Rotten Flesh	100	30	0	Twitch reward-side cooldown is backup only; primary anti-spam = queue-full auto-cancel + refund
+spider_eye	Eat a Spider Eye	100	30	0	Twitch reward-side cooldown is backup only; primary anti-spam = queue-full auto-cancel + refund
+steak	Eat a Steak	500	60	0	Twitch reward-side cooldown is backup only; primary anti-spam = queue-full auto-cancel + refund
+sweet_berries	Eat a Sweet Berries	50	15	0	Twitch reward-side cooldown is backup only; primary anti-spam = queue-full auto-cancel + refund
+suspicious_stew	Eat a Suspicious Stew	250	60	0	Twitch reward-side cooldown is backup only; primary anti-spam = queue-full auto-cancel + refund
+hoglin_meat_raw	Eat a Hoglin Meat (Raw)	100	30	0	Twitch reward-side cooldown is backup only; primary anti-spam = queue-full auto-cancel + refund
+hoglin_meat_cooked	Eat a Hoglin Meat (Cooked)	500	60	0	Twitch reward-side cooldown is backup only; primary anti-spam = queue-full auto-cancel + refund
+

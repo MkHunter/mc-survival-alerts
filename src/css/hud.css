@@ -1,0 +1,177 @@
+/* hud.css — vanilla Minecraft survival HUD for OBS browser source (transparent) */
+
+@font-face {
+  font-family: 'Monocraft';
+  src: url('../assets/fonts/Monocraft.ttf') format('truetype');
+  font-weight: normal;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+html, body {
+  width: 100%; height: 100%;
+  background: transparent;
+  overflow: hidden;
+}
+
+#hud { position: fixed; inset: 0; }
+
+.layer { position: absolute; image-rendering: pixelated; image-rendering: crisp-edges; }
+.layer-fill { position: absolute; left: 0; top: 0; width: 100%; height: 100%; image-rendering: pixelated; }
+.clip { position: absolute; left: 0; top: 0; height: 100%; overflow: hidden; }
+
+#hud-core { position: absolute; left: 50%; bottom: 0; transform: translateX(-50%); height: calc(60 * var(--s, 3) * 1px); }
+#hud-core.dimmed { filter: brightness(0.45); }
+
+/* XP level text */
+.xp-level {
+  position: absolute; left: 0; width: 100%; text-align: center;
+  color: #80FF20;
+  font-family: 'Monocraft', monospace;
+  font-size: calc(8 * var(--s, 3) * 1px);
+  text-shadow: calc(var(--s, 3) * 1px) calc(var(--s, 3) * 1px) 0 #000;
+  pointer-events: none;
+}
+
+/* waiting (blocked) queue item shake */
+.slot.waiting { animation: waiting-shake 0.8s ease-in-out infinite; opacity: 0.65; }
+@keyframes waiting-shake {
+  0%, 100% { transform: translateX(0); }
+  25% { transform: translateX(calc(-0.5 * var(--s, 3) * 1px)); }
+  75% { transform: translateX(calc(0.5 * var(--s, 3) * 1px)); }
+}
+
+/* enchanted golden apple shimmer */
+.slot-shimmer {
+  pointer-events: none;
+  background: linear-gradient(120deg, transparent 30%, rgba(190, 90, 255, 0.55) 50%, transparent 70%);
+  background-size: 300% 300%;
+  animation: shimmer 1.6s linear infinite;
+  mix-blend-mode: screen;
+}
+@keyframes shimmer { 0% { background-position: 120% 0; } 100% { background-position: -20% 0; } }
+
+/* selector chew pulse */
+#hud-core .chewing { animation: sel-pulse 0.25s ease-in-out infinite; }
+@keyframes sel-pulse { 0%, 100% { filter: brightness(1); } 50% { filter: brightness(1.6); } }
+
+/* low-hp heart jitter */
+.lowhp .layer-fill { animation: lowhp-jitter 0.25s steps(2) infinite; }
+@keyframes lowhp-jitter {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(calc(-0.5 * var(--s, 3) * 1px)); }
+}
+
+/* hunger shake (saturation 0) */
+.shaking .layer-fill, .shaking .clip { animation: hunger-jitter 0.2s steps(2) infinite; }
+@keyframes hunger-jitter {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(calc(-0.5 * var(--s, 3) * 1px)); }
+}
+
+.withered { filter: brightness(0); }
+
+/* damage flash */
+.flash { opacity: 0; pointer-events: none; }
+.flash.active { opacity: 0.85; transition: opacity 500ms ease-out; }
+.flash:not(.active) { transition: none; }
+
+/* HUD shake (damage / chorus) */
+#hud-core.shake { animation: hud-shake 0.15s linear infinite; }
+@keyframes hud-shake {
+  0%, 100% { transform: translateX(-50%) translateY(0); }
+  25% { transform: translateX(calc(-50% - var(--s, 3) * 1px)) translateY(calc(var(--s, 3) * 0.5px)); }
+  75% { transform: translateX(calc(-50% + var(--s, 3) * 1px)) translateY(calc(var(--s, 3) * -0.5px)); }
+}
+
+/* nausea sway */
+#hud-core.sway { animation: hud-sway 3.2s ease-in-out infinite; }
+@keyframes hud-sway {
+  0%, 100% { transform: translateX(-50%) rotate(0deg); }
+  25% { transform: translateX(calc(-50% - 1%)) rotate(-0.8deg); }
+  75% { transform: translateX(calc(-50% + 1%)) rotate(0.8deg); }
+}
+
+/* eat sprite */
+#eat-sprite { display: none; transform-origin: 50% 90%; }
+#eat-sprite.eating { display: block; animation: chew 250ms ease-in-out infinite; }
+#eat-sprite.enchanted { filter: drop-shadow(0 0 calc(2 * var(--s, 3) * 1px) rgba(190, 90, 255, 0.9)); }
+@keyframes chew {
+  0%, 100% { transform: rotate(0deg) scale(1); }
+  50% { transform: rotate(-18deg) scale(0.94) translateY(calc(1 * var(--s, 3) * 1px)); }
+}
+
+/* particles */
+#particles { position: absolute; inset: 0; pointer-events: none; overflow: visible; }
+.particle {
+  position: absolute;
+  animation: particle-fall 0.85s ease-in forwards;
+}
+@keyframes particle-fall {
+  0% { transform: translate(0, 0); opacity: 1; }
+  100% { transform: translate(var(--dx, 0), var(--dy, 40px)); opacity: 0; }
+}
+
+/* effects column */
+#effects {
+  position: absolute; top: 8px; right: 8px;
+  display: flex; flex-direction: column; gap: 4px; align-items: flex-end;
+}
+.fx-row { display: flex; gap: 4px; justify-content: flex-end; }
+.fx-icon { position: relative; background: rgba(0,0,0,0.25); }
+.fx-icon img { display: block; image-rendering: pixelated; }
+.fx-icon.blink { animation: fx-blink 0.5s steps(2) infinite; }
+@keyframes fx-blink { 0%, 100% { opacity: 1; } 50% { opacity: 0.15; } }
+.fx-timer {
+  position: absolute; top: 100%; left: 0; right: 0;
+  text-align: center;
+  color: #fff;
+  font-family: 'Monocraft', monospace;
+  font-size: calc(3.5 * var(--s, 3) * 1px);
+  text-shadow: 1px 1px 0 #000;
+  white-space: nowrap;
+}
+
+/* vignettes */
+.vignette {
+  position: absolute; inset: 0; pointer-events: none; opacity: 0;
+  transition: opacity 0.6s ease;
+  background: radial-gradient(ellipse at center, transparent 35%, rgba(0,0,0,0.85) 100%);
+}
+.vignette.on { opacity: 1; }
+.vignette.pulsing.on { animation: vignette-pulse 2.2s ease-in-out infinite; }
+@keyframes vignette-pulse { 0%, 100% { opacity: 0.55; } 50% { opacity: 0.95; } }
+
+/* death overlay */
+.death-overlay {
+  position: absolute; inset: 0;
+  background: radial-gradient(ellipse at center, rgba(120,0,0,0.35) 0%, rgba(80,0,0,0.7) 100%);
+  display: flex; align-items: center; justify-content: center;
+  z-index: 50;
+}
+.death-overlay.hidden { display: none; }
+.death-text {
+  color: #fff;
+  font-family: 'Monocraft', monospace;
+  font-size: 32px;
+  text-shadow: 3px 3px 0 #000;
+}
+
+/* mock panel */
+#mock-panel {
+  position: fixed; top: 8px; left: 8px; z-index: 100;
+  background: rgba(10, 10, 16, 0.92);
+  border: 1px solid #555;
+  color: #ddd;
+  font: 12px/1.5 monospace;
+  padding: 8px 10px;
+  max-width: 460px;
+}
+#mock-panel h3 { font-size: 12px; margin-bottom: 4px; color: #8f8; }
+#mock-panel .mock-row { margin: 4px 0; }
+#mock-panel button, #mock-panel select, #mock-panel input, #mock-panel textarea {
+  font: 12px monospace; background: #222; color: #ddd; border: 1px solid #555;
+}
+#mock-panel textarea { width: 100%; }
+#mock-panel button { cursor: pointer; padding: 1px 8px; }
+#mock-panel button:hover { background: #333; }
