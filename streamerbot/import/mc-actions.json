@@ -1,0 +1,33 @@
+{
+  "_comment": "DRAFT TEMPLATE — Streamer.bot import formats drift between releases. Export one manually-created action from YOUR SB version, diff the schema against this file, fix keys/GUIDs, then import. Manual creation (~2 min/action, see ../SETUP.md §4) is the safer path.",
+  "_actions": [
+    {
+      "name": "MC Fulfill",
+      "subactions": [
+        {
+          "type": "Twitch > Rewards > Update Redemption Status",
+          "status": "Fulfilled",
+          "redemptionId": "%redemptionId%"
+        },
+        {
+          "type": "Twitch > Chat > Send Message (optional)",
+          "message": "🍜 %user%'s %foodId% was devoured!"
+        }
+      ]
+    },
+    {
+      "name": "MC Refund",
+      "subactions": [
+        {
+          "type": "Twitch > Rewards > Update Redemption Status",
+          "status": "Cancel",
+          "redemptionId": "%redemptionId%"
+        },
+        {
+          "type": "Twitch > Chat > Send Message (optional)",
+          "message": "@%user% — %reason%, points refunded"
+        }
+      ]
+    }
+  ]
+}

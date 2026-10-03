@@ -125,7 +125,7 @@ window.MCUI = (function () {
     // eat sprite + particles
     el.eatSprite = img('', 'layer', core); el.eatSprite.id = 'eat-sprite';
     el.eatSprite.style.width = g(64); el.eatSprite.style.height = g(64);
-    el.eatSprite.style.left = g(91 - 32); el.eatSprite.style.bottom = g(30);
+    el.eatSprite.style.left = g(91 - 32); el.eatSprite.style.bottom = g(46); // above hearts row
     el.particles = mk('div', '', core); el.particles.id = 'particles';
 
     // effects column (top-right of source)
